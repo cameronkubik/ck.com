@@ -1,0 +1,789 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+    Website Globals
+   ========================================================================== */
+.mainColor {
+  color: #45A29E !important;
+}
+.secondaryColor {
+  color: #C5C6C7;
+}
+.brightMainColor {
+  color: #66FCF1;
+}
+.altColor {
+  color: #1F2833;
+}
+.inDevelopment {
+  color: #45A29E;
+  font-size: large;
+}
+.dev {
+  /* REMOVE BEFORE PUBLISH */
+  border: 1px dashed dimgrey;
+  /*****************/
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html, body {
+  height: 100%;
+  background-color: #45A29E;
+}
+
+/* PAGE STYLING */
+.fullPage {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.medPage {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.bg_chalk {
+  background: #f4f4f4;
+}
+.bg_tan {
+  background: #f1ecdc;
+}
+
+.pageTitle {
+  font-size: 50px;
+}
+.subtitle {
+  font-size: 40px;
+}
+
+.motto {
+  min-height: 40px;
+  width: 65%;
+
+  color: #888888;
+  line-height: 40px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  margin: 5px 0;
+}
+.mottoBorderContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 75%;
+  height: 2px;
+}
+.mottoBorderContainer.bottom {
+  width: 60%;
+}
+
+.mottoBorder {
+  background-color: #888888;
+  flex: 3;
+}
+.mottoBorder.left {
+  background: linear-gradient(to right, #f4f4f4 , #888888);
+  flex: 1;
+}
+.mottoBorder.right {
+  background: linear-gradient(to right, #888888 , #f4f4f4);
+  flex: 1;
+}
+
+.bg_tan .mottoBorder.left {
+  background: linear-gradient(to right, #f1ecdc, #888888);
+}
+.bg_tan .mottoBorder.right {
+  background: linear-gradient(to right, #888888, #f1ecdc);
+}
+.bg_chalk .mottoBorder.left {
+  background: linear-gradient(to right, #f4f4f4, #888888);
+}
+.bg_chalk .mottoBorder.right {
+  background: linear-gradient(to right, #888888, #f4f4f4);
+}
+/* PAGE LAYOUT */
+.pageContent {
+  width: 70vw;
+  margin-top: 20px;
+  padding: 10px;
+}
+.pageContent.row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.pageContent.column {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.pageContent .content {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#education .header, #experience .header {
+  justify-items: flex-start;
+  width: 100%;
+}
+.headerLabel {
+  height: 40px;
+  font-size: 24px;
+  line-height: 40px;
+  color: #888888;
+}
+.headerLabel .subHeaderLabel {
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  padding-left: 0.5em;
+}
+
+/* CONTENT CONTROLLER */
+.contentController {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid #C5C6C7;
+  border-radius: 5px;
+}
+.contentController .contentSelector {
+  color: #888888;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  padding: 0 0.5em;
+  cursor: pointer;
+}
+.contentController .contentSelector:hover:not(.selected) {
+  color: #45A29E;
+}
+.contentController .contentSelector.selected {
+  font-size: 18px;
+  color: #45A29E;
+  text-decoration: underline;
+  border: 1px solid #888888;
+  border-radius: 5px;
+}
+.contentContainer {
+  width: 70vw;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-items: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+.contentContainer.row {
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* LANDING PAGE */
+#landingPage {
+  background: url("../img/kaden-samford.jpg") center no-repeat fixed;
+  background-size: cover;
+  position: sticky;
+  top: 0;
+}
+#landingPage .signature-container {
+  position: absolute;
+  left: 3%;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+#landingPage .signature {
+  font-size: 72pt;
+  font-family: Copperplate;
+  font-weight: bold;
+}
+#landingPage .signature-pretext {
+  font-size: 36pt;
+  font-family: Copperplate;
+}
+#landingPage .com {
+  font-size: 24pt;
+}
+
+/* PROFILE PAGE STYLES */
+#contactContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  justify-content: center;
+}
+#signature {
+  font-size: 34px;
+  font-weight: 500;
+  margin: 10px;
+}
+#profPic {
+  max-width: 80%;
+  height: auto;
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  border-radius: 25%;
+}
+.contactInfoContainer {
+  display: flex;
+  max-width: 100%;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+.contactInfo {
+  height: 50px;
+  font-size: 24px;
+  line-height: 50px;
+  color: #888888;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+.contactInfoContainer:hover .contactInfo:not(.no_hlink) {
+  color: #000aeb;
+  text-decoration: underline;
+}
+.contactInfoContainer i {
+  font-size: 30px;
+  margin: 0 10px;
+}
+.contactInfoContainer:hover i {
+  font-size: 36px;
+}
+.bioContainer span {
+  font-size: 18px;
+  color: #888888;
+}
+
+/* EDUCATION PAGE */
+#education .contentContainer .courseCard {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-items: flex-start;
+  align-items: center;
+
+  width: 65%;
+  padding: 15px;
+  margin: 10px 0 30px 0;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  -webkit-box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+#education .courseCard .cardInfo {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  min-height: 25px;
+  line-height: 25px;
+}
+#education .courseCard .cardInfo .rhs {
+  margin-left: auto;
+}
+#education .cardInfo .course {
+  font-size: 16px;
+  font-weight: 700;
+}
+#education .cardInfo .courseCode {
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 0.5em;
+}
+#education .cardInfo .semesterLabel {
+  margin-left: auto;
+}
+#education .cardInfo.indented {
+  width: calc(100% - 30px);
+  padding: 0 15px;
+  display: none;
+}
+#education .courseCard:hover .cardInfo.indented {
+  display: block;
+}
+#education .cardInfo .ratingLabel {
+  font-weight: 600;
+  font-size: 15px;
+  margin-right: 10px;
+}
+#education .cardInfo .fa-star {
+  line-height: 25px;
+  font-size: 15px;
+}
+
+/* SKILL SUMMARY PAGE */
+#skillSummary .contentContainer {
+  display: flex;
+  flex-flow: row;
+  margin-top: 20px;
+  padding: 20px;
+  width: 50vw;
+  justify-content: space-between;
+  align-items: stretch;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+#skillSummary .contentContainer .skillColumn {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px 15px;
+}
+#skillSummary .skillColumn .skillRow {
+  width: 100%;
+  margin: 5px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 5px;
+
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+#skillSummary .skillRow:hover {
+  background-color: #f7f7f7;
+  font-size: 18px;
+}
+#skillSummary .skillLabel {
+  color: #7b7b7b;
+  padding-right: 40px;
+  white-space: nowrap;
+}
+#skillSummary .skillLabel.columnTitle {
+  font-weight: bold;
+  margin-left: auto;
+}
+#skillSummary .contentKeyContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50vw;
+  margin-top: 10px;
+}
+#skillSummary .contentKey {
+  padding: 0.75ch;
+  color: #888888;
+
+}
+
+/* EXPERIENCE PAGE */
+#experience .photostreamContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  padding: 10px;
+  width: 70vw;
+}
+#experience .slider {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#experience .slider > i {
+  font-size: 52px;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+#experience .slider:hover i {
+  font-size: 68px;
+}
+
+#experience #photoContainer {
+  flex: 4;
+}
+#experience #photoContainer .photoElements {
+  display: none;
+}
+#experience #photoContainer .photoElements.selected {
+  display: block;
+}
+
+#experience .photoElements > * {
+  width: 100%;
+  height: 100%;
+}
+#experience .photoElements > img {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+#experience .photoElements > .photoDetails {
+  opacity: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: rgba(94, 160, 157, 0.9);
+  background-size: cover;
+
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#experience .photoDetails > * {
+  color: #C5C6C7;
+  font-size: 20px;
+}
+#experience .photoElements.selected:hover > .photoDetails {
+  opacity: 1;
+}
+
+#experience #photoIndexContainer {
+  display: block;
+  margin: auto;
+  padding: 10px;
+}
+
+/* NAVIGATION BAR */
+#navArrow {
+  position: absolute;
+  bottom: 0;
+  left: 90%;
+  background: transparent;
+  width: 100px;
+  height: 80px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#navArrow i {
+  color: #ffffff;
+  font-size: 40px;
+
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 15px, 0); }
+}
+
+.navigationBar {
+  position: sticky;
+  top: 80px;
+  left: 90%;
+  width: 100px;
+  height: auto;
+}
+.navigationBar .navBar {
+  height: 80px;
+  background: inherit;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
